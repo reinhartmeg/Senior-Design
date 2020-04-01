@@ -1,0 +1,178 @@
+<html>
+<head>
+</head>
+
+<style>
+body {background-color: whitesmoke}
+h1 {color:#2C2A29}
+
+button {
+	color: #2C2A29;
+	background:#ffffff;
+	border: 2px solid #63656a;
+	border-radius: 20px;
+	position: center;
+}
+
+</style>
+
+<body>
+<div style="text-align:center">
+<h1><img hspace="5" style="height: 40px"src="http://webgov.uky.edu/standards/assets/img/uk-lockup.png"> </h1>
+<h2> ME412 Senior Design: Web LASSo Control </h2>
+
+<button style="height: 50px; width: 75px" onclick="lighton()"><svg class="bi bi-chevron-right" width="32" height="32" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z" clip-rule="evenodd"/></svg></button>
+<img hspace="5" style="padding-left: 50px">
+<button style="height: 50px; width: 75px" onclick="lightoff()"><svg class="bi bi-skip-end-fill" width="32" height="32" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+	<path stroke="#000" stroke-linecap="round" d="M2.5 6v8"></path>
+	<path d="M2.904 10.697l6.363 3.692c.54.313 1.233-.066 1.233-.697V6.308c0-.63-.693-1.01-1.233-.696L2.904 9.304a.802.802 0 000 1.393z"></path>
+	<path d="M10.404 10.697l6.363 3.692c.54.313 1.233-.066 1.233-.697V6.308c0-.63-.692-1.01-1.233-.696l-6.363 3.692a.802.802 0 000 1.393z"></path>
+  </svg></button>
+<img hspace="15" style="padding-left: 50px">
+<button style="height: 50px; width: 75px" onclick="lightoff()"><img style="height: 35px"src="/images/lightoff.png"></button>
+<br><br>
+
+<span style="display:inline-block;padding:5px;border:6px solid silver; font-size: 140%;font-weight: bold;">
+
+<p>Motor X-Y Control</p>
+
+<button style="height: 50px; width: 50px" onclick="upcont()"><svg class="bi bi-skip-end-fill" width="35" height="35" style="transform:rotate(90deg);" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+	<path stroke="#000" stroke-linecap="round" d="M2.5 6v8"></path>
+	<path d="M2.904 10.697l6.363 3.692c.54.313 1.233-.066 1.233-.697V6.308c0-.63-.693-1.01-1.233-.696L2.904 9.304a.802.802 0 000 1.393z"></path>
+	<path d="M10.404 10.697l6.363 3.692c.54.313 1.233-.066 1.233-.697V6.308c0-.63-.692-1.01-1.233-.696l-6.363 3.692a.802.802 0 000 1.393z"></path>
+  </svg></button>
+<br><br>
+<button style="height: 50px; width: 50px" onclick="upstep()"><svg class="bi bi-skip-start-fill" width="35" height="35" style="transform:rotate(90deg);"viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+	<path stroke="#000" stroke-linecap="round" d="M6.5 6v8"></path>
+	<path d="M6.903 10.697l6.364 3.692c.54.313 1.232-.066 1.232-.697V6.308c0-.63-.692-1.01-1.232-.696L6.903 9.304a.802.802 0 000 1.393z"></path>
+  </svg></button>
+<br><br>
+
+<!-- Start of the main body -->
+<img hspace="7" style="padding-left: 0px">
+<button style="height: 50px; width: 50px" onclick="leftcont()"><svg class="bi bi-skip-end-fill" width="35" height="35" style="transform:rotate(0deg);" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+	<path stroke="#000" stroke-linecap="round" d="M2.5 6v8"></path>
+	<path d="M2.904 10.697l6.363 3.692c.54.313 1.233-.066 1.233-.697V6.308c0-.63-.693-1.01-1.233-.696L2.904 9.304a.802.802 0 000 1.393z"></path>
+	<path d="M10.404 10.697l6.363 3.692c.54.313 1.233-.066 1.233-.697V6.308c0-.63-.692-1.01-1.233-.696l-6.363 3.692a.802.802 0 000 1.393z"></path>
+  </svg></button>
+
+  <img hspace="7" style="padding-left: 0px">
+<button style="height: 50px; width: 50px" onclick="leftstep()"><svg class="bi bi-skip-start-fill" width="35" height="35" style="transform:rotate(0deg);"viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+	<path stroke="#000" stroke-linecap="round" d="M6.5 6v8"></path>
+	<path d="M6.903 10.697l6.364 3.692c.54.313 1.232-.066 1.232-.697V6.308c0-.63-.692-1.01-1.232-.696L6.903 9.304a.802.802 0 000 1.393z"></path>
+  </svg></button>
+
+<img hspace="7" style="padding-left: 0px">
+<button style="height: 50px; width: 50px" onclick="stop()"><svg class="bi bi-pause-fill" width="35" height="35" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+	<path d="M7.5 5.5A1.5 1.5 0 019 7v6a1.5 1.5 0 01-3 0V7a1.5 1.5 0 011.5-1.5zm5 0A1.5 1.5 0 0114 7v6a1.5 1.5 0 01-3 0V7a1.5 1.5 0 011.5-1.5z"></path>
+  </svg></button>
+
+  <img hspace="7" style="padding-left: 0px">
+<button style="height: 50px; width: 50px" onclick="rightstep()"><svg class="bi bi-skip-start-fill" width="35" height="35" style="transform:rotate(180deg);"viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+	<path stroke="#000" stroke-linecap="round" d="M6.5 6v8"></path>
+	<path d="M6.903 10.697l6.364 3.692c.54.313 1.232-.066 1.232-.697V6.308c0-.63-.692-1.01-1.232-.696L6.903 9.304a.802.802 0 000 1.393z"></path>
+  </svg></button>
+
+  <img hspace="7" style="padding-left: 0px">
+<button style="height: 50px; width: 50px" onclick="rightcont()"><svg class="bi bi-skip-end-fill" width="35" height="35" style="transform:rotate(180deg);" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+	<path stroke="#000" stroke-linecap="round" d="M2.5 6v8"></path>
+	<path d="M2.904 10.697l6.363 3.692c.54.313 1.233-.066 1.233-.697V6.308c0-.63-.693-1.01-1.233-.696L2.904 9.304a.802.802 0 000 1.393z"></path>
+	<path d="M10.404 10.697l6.363 3.692c.54.313 1.233-.066 1.233-.697V6.308c0-.63-.692-1.01-1.233-.696l-6.363 3.692a.802.802 0 000 1.393z"></path>
+  </svg></button>
+
+<img hspace="7" style="padding-left: 0px">
+
+<br><br>
+<button style="height: 50px; width: 50px" onclick="downstep()"><svg class="bi bi-skip-start-fill" width="35" height="35" style="transform:rotate(270deg);"viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+	<path stroke="#000" stroke-linecap="round" d="M6.5 6v8"></path>
+	<path d="M6.903 10.697l6.364 3.692c.54.313 1.232-.066 1.232-.697V6.308c0-.63-.692-1.01-1.232-.696L6.903 9.304a.802.802 0 000 1.393z"></path>
+  </svg></button>
+<br><br>
+<button style="height: 50px; width: 50px" onclick="downcont()"><svg class="bi bi-skip-end-fill" width="35" height="35" style="transform:rotate(270deg);" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+	<path stroke="#000" stroke-linecap="round" d="M2.5 6v8"></path>
+	<path d="M2.904 10.697l6.363 3.692c.54.313 1.233-.066 1.233-.697V6.308c0-.63-.693-1.01-1.233-.696L2.904 9.304a.802.802 0 000 1.393z"></path>
+	<path d="M10.404 10.697l6.363 3.692c.54.313 1.233-.066 1.233-.697V6.308c0-.63-.692-1.01-1.233-.696l-6.363 3.692a.802.802 0 000 1.393z"></path>
+  </svg></button>
+
+<br>
+<p>Motor Speed Control</p>
+<img hspace="10" style="padding-left: 5px">
+<button style="height: 50px; width: 50px; font-size: 18px" onclick="nospeed()">--</button>
+<img hspace="10" style="padding-left: 20px">
+<button style="height: 50px; width: 50px; font-size: 18px" onclick="lowspeed()">-</button>
+<img hspace="10" style="padding-left: 20px">
+<button style="height: 50px; width: 50px; font-size: 18px" onclick="regularspeed()">+</button>
+<img hspace="10" style="padding-left: 20px">
+<button style="height: 50px; width: 50px; font-size: 18px" onclick="highspeed()">++</button>
+<img hspace="10" style="padding-left: 5px">
+<br><br>
+
+</span>
+
+</div>
+
+<script>
+var xmlhttp;
+xmlhttp=new XMLHttpRequest();
+
+function lighton()
+    {
+        xmlhttp.open("GET","cgi-bin/lighton.cgi",true);
+        xmlhttp.send();
+    }
+function lightoff()
+    {
+        xmlhttp.open("GET","cgi-bin/lightoff.cgi",true);
+        xmlhttp.send();
+    }
+function forward()
+{
+	xmlhttp.open("GET","cgi-bin/forward.cgi",true);
+	xmlhttp.send();
+}
+function stop()
+{
+	xmlhttp.open("GET","cgi-bin/stop.cgi",true);
+	xmlhttp.send();
+}
+function left()
+{
+	xmlhttp.open("GET","cgi-bin/left.cgi",true);
+	xmlhttp.send();
+}
+function right()
+{
+	xmlhttp.open("GET","cgi-bin/right.cgi",true);
+	xmlhttp.send();
+}
+function reverse()
+{
+	xmlhttp.open("GET","cgi-bin/reverse.cgi",true);
+	xmlhttp.send();
+}
+
+function lowspeed()
+{
+	xmlhttp.open("GET","cgi-bin/lowspeed.cgi",true);
+	xmlhttp.send();
+}
+function regularspeed()
+{
+	xmlhttp.open("GET","cgi-bin/regularspeed.cgi",true);
+	xmlhttp.send();
+}
+function highspeed()
+{
+	xmlhttp.open("GET","cgi-bin/highspeed.cgi",true);
+	xmlhttp.send();
+}
+function nospeed()
+{
+	xmlhttp.open("GET","cgi-bin/nospeed.cgi",true);
+	xmlhttp.send();
+}
+
+</script>
+
+</body>
+</html>
