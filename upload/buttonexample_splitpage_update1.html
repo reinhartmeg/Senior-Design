@@ -1,0 +1,345 @@
+<html>
+<head>
+</head>
+
+<style>
+body {background-color: whitesmoke}
+h1 {color:#2C2A29}
+
+
+.button {
+	/*color:  #2C2A29;
+	background: #ffffff;
+	border: 3px solid #63656a;
+	border-radius: 10px;
+    	font-size: 16px;
+	position: center;*/
+
+    border: none;
+    background-color: inherit;
+    padding: 14px 28px;
+    font-size: 20px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+/* On mouse-over */
+.button:hover {background: #D0D0D0;}
+
+button {
+	color: #2C2A29;
+	background:#ffffff;
+	border: 2px solid #63656a;
+	border-radius: 20px;
+	position: center;
+}
+
+/* On mouse-over */
+button:hover {background: #eee;}
+
+div{
+      float:left;
+      height:450px; 
+      padding:0 10px;
+	  } 
+      #column1{ 
+      width:20%; 
+	  } 
+      #column2{ 
+      width:40%; 
+      } 
+      #column3{ 
+	  width:32%;
+      } 
+
+</style>
+
+<body>
+<main id ="sections">
+<div id="column1">
+<h1><img hspace="0" style="height: 42px"src="http://webgov.uky.edu/standards/assets/img/uk-lockup.png"> </h1>
+<h2>ME412 LASSo</h2>
+
+<button class="button" style="height: 50px; width: 155px" onclick="lighton()">Run Path</button>
+<button class="button" style="height: 50px; width: 155px" onclick="lighton()">Trial Setup</button>
+<button class="button" style="height: 50px; width: 155px" onclick="lighton()">Calibrate</button>
+<br><br>
+<a href=# id=home><button class="button" style="height: 50px; width: 155px" onclick="home()">Home</button></a>
+<a href=# id=home1><button class="button" style="height: 50px; width: 155px" onclick="home1()">Axis 1</button></a>
+<a href=# id=home2><button class="button" style="height: 50px; width: 155px" onclick="home2()">Axis 2</button></a>
+<br><br>
+</div>
+
+<div id="column2">
+
+<span style="display:inline-block;padding:2px;border:4px solid silver; font-size: 140%;font-weight: bold;">
+
+<div style="text-align:center">
+
+<p>Motor X-Y Control</p>
+
+<!--upper two buttons--> 
+<a href=# id=upc><button style="height: 50px; width: 50px" onclick="upcont()"><svg class="bi bi-skip-end-fill" width="35" height="35" style="transform:rotate(90deg);" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+	<path stroke="#000" stroke-linecap="round" d="M2.5 6v8"></path>
+	<path d="M2.904 10.697l6.363 3.692c.54.313 1.233-.066 1.233-.697V6.308c0-.63-.693-1.01-1.233-.696L2.904 9.304a.802.802 0 000 1.393z"></path>
+	<path d="M10.404 10.697l6.363 3.692c.54.313 1.233-.066 1.233-.697V6.308c0-.63-.692-1.01-1.233-.696l-6.363 3.692a.802.802 0 000 1.393z"></path>
+  </svg></button></a>
+<br>
+<a href=# id=ups><button style="height: 50px; width: 50px" onclick="upstep()"><svg class="bi bi-skip-start-fill" width="35" height="35" style="transform:rotate(90deg);"viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+	<path stroke="#000" stroke-linecap="round" d="M6.5 6v8"></path>
+	<path d="M6.903 10.697l6.364 3.692c.54.313 1.232-.066 1.232-.697V6.308c0-.63-.692-1.01-1.232-.696L6.903 9.304a.802.802 0 000 1.393z"></path>
+  </svg></button></a>
+<br>
+
+<!-- Start of the main body -->
+<a href=# id=lc><button style="height: 50px; width: 50px" onclick="leftcont()"><svg class="bi bi-skip-end-fill" width="35" height="35" style="transform:rotate(0deg);" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+	<path stroke="#000" stroke-linecap="round" d="M2.5 6v8"></path>
+	<path d="M2.904 10.697l6.363 3.692c.54.313 1.233-.066 1.233-.697V6.308c0-.63-.693-1.01-1.233-.696L2.904 9.304a.802.802 0 000 1.393z"></path>
+	<path d="M10.404 10.697l6.363 3.692c.54.313 1.233-.066 1.233-.697V6.308c0-.63-.692-1.01-1.233-.696l-6.363 3.692a.802.802 0 000 1.393z"></path>
+  </svg></button></a>
+
+<a href=# id=ls><button style="height: 50px; width: 50px" onclick="leftstep()"><svg class="bi bi-skip-start-fill" width="35" height="35" style="transform:rotate(0deg);"viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+	<path stroke="#000" stroke-linecap="round" d="M6.5 6v8"></path>
+	<path d="M6.903 10.697l6.364 3.692c.54.313 1.232-.066 1.232-.697V6.308c0-.63-.692-1.01-1.232-.696L6.903 9.304a.802.802 0 000 1.393z"></path>
+  </svg></button></a>
+
+<a href=# id=stop><button style="height: 50px; width: 50px" onclick="stop()"><svg class="bi bi-pause-fill" width="35" height="35" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+	<path d="M7.5 5.5A1.5 1.5 0 019 7v6a1.5 1.5 0 01-3 0V7a1.5 1.5 0 011.5-1.5zm5 0A1.5 1.5 0 0114 7v6a1.5 1.5 0 01-3 0V7a1.5 1.5 0 011.5-1.5z"></path>
+  </svg></button></a>
+
+<a href=# id=rs><button style="height: 50px; width: 50px" onclick="rightstep()"><svg class="bi bi-skip-start-fill" width="35" height="35" style="transform:rotate(180deg);"viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+	<path stroke="#000" stroke-linecap="round" d="M6.5 6v8"></path>
+	<path d="M6.903 10.697l6.364 3.692c.54.313 1.232-.066 1.232-.697V6.308c0-.63-.692-1.01-1.232-.696L6.903 9.304a.802.802 0 000 1.393z"></path>
+  </svg></button></a>
+
+<a href=# id=rc><button style="height: 50px; width: 50px" onclick="rightcont()"><svg class="bi bi-skip-end-fill" width="35" height="35" style="transform:rotate(180deg);" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+	<path stroke="#000" stroke-linecap="round" d="M2.5 6v8"></path>
+	<path d="M2.904 10.697l6.363 3.692c.54.313 1.233-.066 1.233-.697V6.308c0-.63-.693-1.01-1.233-.696L2.904 9.304a.802.802 0 000 1.393z"></path>
+	<path d="M10.404 10.697l6.363 3.692c.54.313 1.233-.066 1.233-.697V6.308c0-.63-.692-1.01-1.233-.696l-6.363 3.692a.802.802 0 000 1.393z"></path>
+  </svg></button></a>
+
+<!--bottom two buttons--> 
+<br>
+<a href=# id=ds><button style="height: 50px; width: 50px" onclick="downstep()"><svg class="bi bi-skip-start-fill" width="35" height="35" style="transform:rotate(270deg);"viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+	<path stroke="#000" stroke-linecap="round" d="M6.5 6v8"></path>
+	<path d="M6.903 10.697l6.364 3.692c.54.313 1.232-.066 1.232-.697V6.308c0-.63-.692-1.01-1.232-.696L6.903 9.304a.802.802 0 000 1.393z"></path>
+  </svg></button></a>
+<br>
+<a href=# id=dc><button style="height: 50px; width: 50px" onclick="downcont()"><svg class="bi bi-skip-end-fill" width="35" height="35" style="transform:rotate(270deg);" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+	<path stroke="#000" stroke-linecap="round" d="M2.5 6v8"></path>
+	<path d="M2.904 10.697l6.363 3.692c.54.313 1.233-.066 1.233-.697V6.308c0-.63-.693-1.01-1.233-.696L2.904 9.304a.802.802 0 000 1.393z"></path>
+	<path d="M10.404 10.697l6.363 3.692c.54.313 1.233-.066 1.233-.697V6.308c0-.63-.692-1.01-1.233-.696l-6.363 3.692a.802.802 0 000 1.393z"></path>
+  </svg></button></a>
+
+<br>
+<p>Speed</p>
+<img hspace="0" style="padding-left: 5px">
+<button style="height: 50px; width: 50px; font-size: 18px" onclick="lowspeed()">-</button>
+<img hspace="0" style="padding-left: 5px">
+<button style="height: 50px; width: 50px; font-size: 18px" onclick="highspeed()">+</button>
+<img hspace="0" style="padding-left: 5px">
+<br><br>
+
+</span>
+</div>
+</div>
+
+
+
+
+<div id="column3">
+
+
+
+	<span style="display:inline-block;padding:2px;border:4px solid silver; font-size: 140%;font-weight: bold;">
+
+		<div style="text-align:center">
+		
+		<p>Motor Z Control</p>
+		
+		
+		<button style="height: 50px; width: 50px" onclick="upcont()"><svg class="bi bi-skip-end-fill" width="35" height="35" style="transform:rotate(90deg);" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+			<path stroke="#000" stroke-linecap="round" d="M2.5 6v8"></path>
+			<path d="M2.904 10.697l6.363 3.692c.54.313 1.233-.066 1.233-.697V6.308c0-.63-.693-1.01-1.233-.696L2.904 9.304a.802.802 0 000 1.393z"></path>
+			<path d="M10.404 10.697l6.363 3.692c.54.313 1.233-.066 1.233-.697V6.308c0-.63-.692-1.01-1.233-.696l-6.363 3.692a.802.802 0 000 1.393z"></path>
+		  </svg></button>
+		<br>
+		<button style="height: 50px; width: 50px" onclick="upstep()"><svg class="bi bi-skip-start-fill" width="35" height="35" style="transform:rotate(90deg);"viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+			<path stroke="#000" stroke-linecap="round" d="M6.5 6v8"></path>
+			<path d="M6.903 10.697l6.364 3.692c.54.313 1.232-.066 1.232-.697V6.308c0-.63-.692-1.01-1.232-.696L6.903 9.304a.802.802 0 000 1.393z"></path>
+		  </svg></button>
+		<br>
+		
+		<!-- Start of the main body -->
+				
+		<button style="height: 50px; width: 50px" onclick="stop()"><svg class="bi bi-pause-fill" width="35" height="35" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+			<path d="M7.5 5.5A1.5 1.5 0 019 7v6a1.5 1.5 0 01-3 0V7a1.5 1.5 0 011.5-1.5zm5 0A1.5 1.5 0 0114 7v6a1.5 1.5 0 01-3 0V7a1.5 1.5 0 011.5-1.5z"></path>
+		  </svg></button>
+		
+		
+		
+		<br>
+		<button style="height: 50px; width: 50px" onclick="downstep()"><svg class="bi bi-skip-start-fill" width="35" height="35" style="transform:rotate(270deg);"viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+			<path stroke="#000" stroke-linecap="round" d="M6.5 6v8"></path>
+			<path d="M6.903 10.697l6.364 3.692c.54.313 1.232-.066 1.232-.697V6.308c0-.63-.692-1.01-1.232-.696L6.903 9.304a.802.802 0 000 1.393z"></path>
+		  </svg></button>
+		<br>
+		<button style="height: 50px; width: 50px" onclick="downcont()"><svg class="bi bi-skip-end-fill" width="35" height="35" style="transform:rotate(270deg);" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+			<path stroke="#000" stroke-linecap="round" d="M2.5 6v8"></path>
+			<path d="M2.904 10.697l6.363 3.692c.54.313 1.233-.066 1.233-.697V6.308c0-.63-.693-1.01-1.233-.696L2.904 9.304a.802.802 0 000 1.393z"></path>
+			<path d="M10.404 10.697l6.363 3.692c.54.313 1.233-.066 1.233-.697V6.308c0-.63-.692-1.01-1.233-.696l-6.363 3.692a.802.802 0 000 1.393z"></path>
+		  </svg></button>
+		
+		<br>
+		<p>Step Size</p>
+		<img hspace="0" style="padding-left: 10px">
+		<button style="height: 50px; width: 50px; font-size: 18px" onclick="lowspeed()">-</button>
+		<img hspace="0" style="padding-left: 10px">
+		<button style="height: 50px; width: 50px; font-size: 18px" onclick="regularspeed()">+</button>
+		<img hspace="0" style="padding-left: 10px">
+		<br><br>
+		
+		</span>
+		</div>
+		</div>
+	
+
+
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type=text/javascript>
+        $(function upcont() {
+          $('a#upc').bind('click', function upcont() {
+            $.getJSON('/back2',
+                function upcont(data) {
+              //do nothing
+            });
+            return false;
+          });
+        });
+
+
+        $(function stop() {
+          $('a#stop').bind('click', function stop() {
+            $.getJSON('/back',
+                function stop(data) {
+              //do nothing
+            });
+            return false;
+          });
+        });
+
+        //home
+        $(function home() {
+          $('a#home').bind('click', function home() {
+            $.getJSON('/back1',
+                function home(data) {
+              //do nothing
+            });
+            return false;
+          });
+        });
+
+        //home1
+        $(function home1() {
+          $('a#home1').bind('click', function home1() {
+            $.getJSON('/back3',
+                function home1(data) {
+              //do nothing
+            });
+            return false;
+          });
+        });
+
+        //home2
+        $(function home2() {
+          $('a#home2').bind('click', function home2() {
+            $.getJSON('/back4',
+                function home2(data) {
+              //do nothing
+            });
+            return false;
+          });
+        });
+
+        //upstep
+        $(function upstep() {
+          $('a#ups').bind('click', function upstep() {
+            $.getJSON('/back5',
+                function upstep(data) {
+              //do nothing
+            });
+            return false;
+          });
+        });
+
+        //downstep
+        $(function downstep() {
+          $('a#ds').bind('click', function downstep() {
+            $.getJSON('/back6',
+                function downstep(data) {
+              //do nothing
+            });
+            return false;
+          });
+        });
+
+        //downcont
+        $(function downcont() {
+          $('a#dc').bind('click', function downcont() {
+            $.getJSON('/back7',
+                function downcont(data) {
+              //do nothing
+            });
+            return false;
+          });
+        });
+
+        //leftcout
+        $(function leftcout() {
+          $('a#lc').bind('click', function leftcout() {
+            $.getJSON('/back8',
+                function leftcout(data) {
+              //do nothing
+            });
+            return false;
+          });
+        });
+
+        //leftstep
+        $(function leftstep() {
+          $('a#ls').bind('click', function leftstep() {
+            $.getJSON('/back9',
+                function leftstep(data) {
+              //do nothing
+            });
+            return false;
+          });
+        });
+
+        //rightstep
+        $(function rightstep() {
+          $('a#rs').bind('click', function rightstep() {
+            $.getJSON('/back10',
+                function rightstep(data) {
+              //do nothing
+            });
+            return false;
+          });
+        });
+
+        //rightcont
+        $(function rightcont() {
+          $('a#rc').bind('click', function rightcont() {
+            $.getJSON('/back11',
+                function rightcont(data) {
+              //do nothing
+            });
+            return false;
+          });
+        });
+</script>
+</main>
+</body>
+</html>
